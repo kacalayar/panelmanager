@@ -16,8 +16,8 @@
   "scripts": {
     "dev": "pnpm --parallel --filter \"@panelmanager/*\" dev",
     "build": "pnpm -r --filter \"./packages/*\" build && pnpm --filter @panelmanager/server build && pnpm --filter @panelmanager/web build",
-    "typecheck": "pnpm -r typecheck",
-    "test": "pnpm -r test"
+    "typecheck": "pnpm -r --filter \"./packages/*\" build && pnpm -r typecheck",
+    "test": "pnpm -r --filter \"./packages/*\" build && pnpm -r test"
   },
   "devDependencies": {
     "typescript": "^5.8.2",
