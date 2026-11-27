@@ -1,0 +1,29 @@
+{
+  "name": "@panelmanager/docker",
+  "version": "0.1.0",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    }
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "dockerode": "^4.0.5",
+    "js-yaml": "^4.1.0"
+  },
+  "devDependencies": {
+    "@types/dockerode": "^3.3.36",
+    "@types/js-yaml": "^4.0.9",
+    "@types/node": "^22.15.0",
+    "typescript": "^5.8.2",
+    "vitest": "^3.1.1"
+  }
+}

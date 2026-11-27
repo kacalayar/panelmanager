@@ -1,0 +1,29 @@
+{
+  "name": "panelmanager",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Self-hosted PaaS and Docker Swarm control panel inspired by Easypanel",
+  "license": "MIT",
+  "author": "kacalayar",
+  "homepage": "https://github.com/kacalayar/panelmanager#readme",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kacalayar/panelmanager.git"
+  },
+  "bugs": {
+    "url": "https://github.com/kacalayar/panelmanager/issues"
+  },
+  "scripts": {
+    "dev": "pnpm --parallel --filter \"@panelmanager/*\" dev",
+    "build": "pnpm -r --filter \"./packages/*\" build && pnpm --filter @panelmanager/server build && pnpm --filter @panelmanager/web build",
+    "typecheck": "pnpm -r typecheck",
+    "test": "pnpm -r test"
+  },
+  "devDependencies": {
+    "typescript": "^5.8.2",
+    "vitest": "^3.1.1"
+  },
+  "engines": {
+    "node": ">=22.0.0"
+  }
+}

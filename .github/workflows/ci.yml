@@ -1,0 +1,86 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 12
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+
+      - name: Install dependencies
+        run: pnpm install --no-frozen-lockfile
+
+      - name: Typecheck
+        run: pnpm typecheck
+
+      - name: Run tests
+        run: pnpm test
+
+      - name: Build production
+        run: pnpm build
+
+      - name: Check shell scripts syntax
+        run: |
+          bash -n install.sh
+          bash -n docker/start.sh
+
+  docker-e2e:
+    needs: verify
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Initialize Docker Swarm
+        run: docker swarm init --advertise-addr 127.0.0.1
+
+      - name: Build Docker image
+        run: |
+          docker build \
+            -f docker/Dockerfile \
+            --build-arg NEXT_PUBLIC_API_URL=http://127.0.0.1:3001 \
+            -t panelmanager:ci .
+
+      - name: Verify container runtime, static assets, and Swarm API
+        run: |
+          docker run -d --name panelmanager-ci \
+            -p 3000:3000 \
+            -p 3001:3001 \
+            -e PANEL_SECRET=ci-test-secret-key-at-least-32-chars \
+            -v /var/run/docker.sock:/var/run/docker.sock \
+            panelmanager:ci
+
+          trap 'docker logs panelmanager-ci || true; docker rm -f panelmanager-ci || true' EXIT
+
+          for i in $(seq 1 30); do
+            if curl -fsS http://127.0.0.1:3000/api/auth/status >/dev/null 2>&1; then
+              break
+            fi
+            sleep 2
+          done
+
+          curl -fsS http://127.0.0.1:3001/health | grep -q '"ok":true'
+          curl -fsS http://127.0.0.1:3000/api/auth/status | grep -q '"initialized":false'
+
+          # Verify Next.js HTML and static CSS/JS assets return 200
+          HTML=$(curl -fsS http://127.0.0.1:3000/)
+          STATIC_PATH=$(echo "$HTML" | grep -oE '/_next/static/[^"'\'' ]+\.(css|js)' | head -n 1)
+          test -n "$STATIC_PATH"
+          curl -fsS "http://127.0.0.1:3000${STATIC_PATH}" >/dev/null

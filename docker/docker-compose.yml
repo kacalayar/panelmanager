@@ -1,0 +1,26 @@
+services:
+  panelmanager:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+      args:
+        - NEXT_PUBLIC_API_URL=${NEXT_PUBLIC_API_URL:-}
+    image: panelmanager:latest
+    container_name: panelmanager
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+      - "3001:3001"
+    environment:
+      - PORT=3001
+      - DATA_DIR=/data
+      - PANEL_PUBLIC_URL=${PANEL_PUBLIC_URL:-http://localhost:3000}
+      - INTERNAL_API_URL=http://127.0.0.1:3001
+      # Set PANEL_SECRET in production or let PanelManager auto-generate /data/.panel_secret
+      - PANEL_SECRET=${PANEL_SECRET:-}
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - panel-data:/data
+
+volumes:
+  panel-data:
