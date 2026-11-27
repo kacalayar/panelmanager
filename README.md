@@ -176,6 +176,7 @@ pnpm dev
 
 ## Kontribusi, Keamanan & Lisensi
 
+- **Changelog & Roadmap:** Lihat catatan perubahan di [CHANGELOG.md](CHANGELOG.md) dan rencana pengembangan di [ROADMAP.md](ROADMAP.md).
 - **Kontribusi:** Baca panduan kontribusi di [CONTRIBUTING.md](CONTRIBUTING.md).
 - **Laporan Celah Keamanan:** Baca kebijakan pelaporan kerentanan di [SECURITY.md](SECURITY.md) (mohon jangan membuka issue publik untuk celah keamanan).
 - **Lisensi:** Dirilis di bawah lisensi [MIT](LICENSE) — © 2026 [kacalayar](https://github.com/kacalayar).

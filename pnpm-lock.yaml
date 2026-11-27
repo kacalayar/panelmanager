@@ -21,8 +21,8 @@ importers:
         specifier: ^3.777.0
         version: 3.1178.0
       '@hono/node-server':
-        specifier: ^1.14.0
-        version: 1.19.19(hono@4.13.22)
+        specifier: ^2.1.11
+        version: 2.1.11(hono@4.13.22)
       '@panelmanager/db':
         specifier: workspace:*
         version: link:../../packages/db
@@ -33,8 +33,8 @@ importers:
         specifier: workspace:*
         version: link:../../packages/templates
       croner:
-        specifier: ^9.0.0
-        version: 9.1.0
+        specifier: ^11.0.1
+        version: 11.0.1
       hono:
         specifier: ^4.7.6
         version: 4.13.22
@@ -42,7 +42,7 @@ importers:
         specifier: ^8.18.1
         version: 8.23.0
       zod:
-        specifier: ^3.24.2
+        specifier: ^3.25.76
         version: 3.25.76
     devDependencies:
       '@types/node':
@@ -64,16 +64,16 @@ importers:
   apps/web:
     dependencies:
       '@xterm/addon-fit':
-        specifier: ^0.10.0
-        version: 0.10.0(@xterm/xterm@5.5.0)
+        specifier: ^0.11.0
+        version: 0.11.0
       '@xterm/xterm':
         specifier: ^5.5.0
         version: 5.5.0
       lucide-react:
-        specifier: ^0.479.0
-        version: 0.479.0(react@19.3.1)
+        specifier: ^1.81.0
+        version: 1.81.0(@types/react@19.3.3)(react@19.3.1)
       next:
-        specifier: ^15.2.3
+        specifier: ^15.5.29
         version: 15.5.29(@types/node@22.20.7)(react-dom@19.3.1(react@19.3.1))(react@19.3.1)
       react:
         specifier: ^19.0.0
@@ -123,15 +123,15 @@ importers:
   packages/docker:
     dependencies:
       dockerode:
-        specifier: ^4.0.5
-        version: 4.0.12
+        specifier: ^5.0.1
+        version: 5.0.1
       js-yaml:
-        specifier: ^4.1.0
+        specifier: ^4.3.2
         version: 4.3.2
     devDependencies:
       '@types/dockerode':
-        specifier: ^3.3.36
-        version: 3.3.47
+        specifier: ^4.0.2
+        version: 4.0.2
       '@types/js-yaml':
         specifier: ^4.0.9
         version: 4.0.9
@@ -415,11 +415,11 @@ packages:
     engines: {node: '>=6'}
     hasBin: true
 
-  '@hono/node-server@1.19.19':
-    resolution: {integrity: sha512-Fy9R7PACOzHU9LDpfnuzVyuVYevKQRcEG2mZhmfc+DRdmayEd3RVfa2XOt2IgGcPNgA77Yk63KBszepcMFK5Ng==}
-    engines: {node: '>=18.14.1'}
+  '@hono/node-server@2.1.11':
+    resolution: {integrity: sha512-KzKz9vl4vvr1vgLHamj+g5uonbrj5NwAdO3yzOS6cd2HjALVeOgTgeZOyAzNxejbkfOOPIcvuf/Tg8l1pEFLog==}
+    engines: {node: '>=20'}
     peerDependencies:
-      hono: ^4
+      hono: ^4 || ^5.0.0-0
 
   '@img/colour@1.1.0':
     resolution: {integrity: sha512-Td76q7j57o/tLVdgS746cYARfSyxk8iEfRxewL9h4OMzYhbW4TAcppl0mT4eyqXddh6L/jwoM75mo7ixa/pCeQ==}
@@ -954,8 +954,8 @@ packages:
   '@types/docker-modem@3.0.6':
     resolution: {integrity: sha512-yKpAGEuKRSS8wwx0joknWxsmLha78wNMe9R2S3UNsVOkZded8UqOrV8KoeDXoXsjndxwyF3eIhyClGbO1SEhEg==}
 
-  '@types/dockerode@3.3.47':
-    resolution: {integrity: sha512-ShM1mz7rCjdssXt7Xz0u1/R2BJC7piWa3SJpUBiVjCf2A3XNn4cP6pUVaD8bLanpPVVn4IKzJuw3dOvkJ8IbYw==}
+  '@types/dockerode@4.0.2':
+    resolution: {integrity: sha512-hA4myZ0XzwHG/p/eCLElYsQS3y1XZfvi6AfLFKVp1SNpPkO6J3xLatacAFVkReTxXRoIa3eHJmhJi9w6I3+zNA==}
 
   '@types/estree@1.0.11':
     resolution: {integrity: sha512-YBdNe5JcjYR0sPhJW1QIeRCmI11YhYvaRuGCs9+WCeTTb+Yhb2BE2XMe5/wAqF10FK5g3+q1PDhQABfT7aX0gg==}
@@ -1012,10 +1012,8 @@ packages:
   '@vitest/utils@3.2.7':
     resolution: {integrity: sha512-x6BDOd7dyo3PFLY3I9/HJ25X/6OurhGXk2/B9gOZNPF7XDVjeBK4k01lQE5uvDpbuheErh91qYuE1E2OEjK3Rw==}
 
-  '@xterm/addon-fit@0.10.0':
-    resolution: {integrity: sha512-UFYkDm4HUahf2lnEyHvio51TNGiLK66mqP2JoATy7hRZeXaGMRDr00JiSF7m63vR5WKATF605yEggJKsw0JpMQ==}
-    peerDependencies:
-      '@xterm/xterm': ^5.0.0
+  '@xterm/addon-fit@0.11.0':
+    resolution: {integrity: sha512-jYcgT6xtVYhnhgxh3QgYDnnNMYTcf8ElbxxFzX0IZo+vabQqSPAjC3c1wJrKB5E19VwQei89QCiZZP86DCPF7g==}
 
   '@xterm/xterm@5.5.0':
     resolution: {integrity: sha512-hqJHYaQb5OptNunnyAnkHyM8aCjZ1MEIDTQu1iIbbTD/xops91NB5yq1ZK/dC2JDbVWtF23zUtl9JE2NqwT87A==}
@@ -1093,8 +1091,8 @@ packages:
     resolution: {integrity: sha512-9IkYqtX3YHPCzoVg1Py+o9057a3i0fp7S530UWokCSaFVTc7CwXPRiOjRjBQQ18ZCNafx78YfnG+HALxtVmOGA==}
     engines: {node: '>=10.0.0'}
 
-  croner@9.1.0:
-    resolution: {integrity: sha512-p9nwwR4qyT5W996vBZhdvBCnMhicY5ytZkR4D1Xj0wuTDEiMnjwR57Q3RXYY/s0EpX6Ay3vgIcfaR+ewGHsi+g==}
+  croner@11.0.1:
+    resolution: {integrity: sha512-/fmHcoczPy5cMcmJ6ex7J7LAwb545V1dNmRrdDGP3hwStg/06IYP56YgBySCSdWGDz2PJYQyDukaR8b8R5o2HA==}
     engines: {node: '>=18.0'}
 
   csstype@3.2.4:
@@ -1121,9 +1119,9 @@ packages:
     resolution: {integrity: sha512-XJgGhoR/CLpqshm4d3L7rzH6t8NgDFUIIpztYlLHIApeJjMZKYJMz2zxPsYxnejq5h3ELYSw/RBsi3t5h7gNTA==}
     engines: {node: '>= 8.0'}
 
-  dockerode@4.0.12:
-    resolution: {integrity: sha512-/bCZd6KlGcjZO8Buqmi/vXuqEGVEZ0PNjx/biBNqJD3MhK9DmdiAuKxqfNhflgDESDIiBz3qF+0e55+CpnrUcw==}
-    engines: {node: '>= 8.0'}
+  dockerode@5.0.1:
+    resolution: {integrity: sha512-avsq/xk4YPIrn0CgleX5bjT9Y8IT1p9PxrNQ++RBQ2WEyFfHCTDsT9kmyxz+H/axnjAwg8wJWEIuPGOUuNupiA==}
+    engines: {node: '>= 14.17'}
 
   drizzle-orm@0.45.4:
     resolution: {integrity: sha512-NiM1YZpJ2UxyeE67DpDDZ+Tsw4YLX3trSlkNT7Tm9eKoUNb1LvaAaQzXgYQsWs+AQ9TUmmwMmBOCXuqqxUWKKQ==}
@@ -1381,10 +1379,14 @@ packages:
   loupe@3.2.1:
     resolution: {integrity: sha512-CdzqowRJCeLU72bHvWqwRBBlLcMEtIvGrlvef74kMnV2AolS9Y8xUv1I0U/MNAWMhBlKIoyuEgoJ0t/bbwHbLQ==}
 
-  lucide-react@0.479.0:
-    resolution: {integrity: sha512-aBhNnveRhorBOK7uA4gDjgaf+YlHMdMhQ/3cupk6exM10hWlEU+2QtWYOfhXhjAsmdb6LeKR+NZnow4UxRRiTQ==}
+  lucide-react@1.81.0:
+    resolution: {integrity: sha512-U+CisvFQ84m+xUJAKKA4q+mykGB1LAmu196hOblQbuNYJgD43iHwpmfYuqcFYHXJu2oqRih5JoH3f5LxwsUegg==}
     peerDependencies:
+      '@types/react': '*'
       react: ^16.5.1 || ^17.0.0 || ^18.0.0 || ^19.0.0
+    peerDependenciesMeta:
+      '@types/react':
+        optional: true
 
   magic-string@0.30.21:
     resolution: {integrity: sha512-vd2F4YUyEXKGcLHoq+TEyCjxueSeHnFxyyjNp80yg0XV4vUhnDer/lvvlqM/arB5bXQN5K2/3oinyCRyx8T2CQ==}
@@ -1611,11 +1613,6 @@ packages:
 
   util-deprecate@1.0.2:
     resolution: {integrity: sha512-EPD5q1uXyFxJpCrLnCc1nHnq3gOa6DZBocAIiI2TaSCA7VCJ1UJDMagCzIkXNsUYfD1daK//LTEQ8xiIbrHtcw==}
-
-  uuid@10.0.0:
-    resolution: {integrity: sha512-8XkAphELsDnEGrDxUOHB3RGvXz6TeuYSGEZBOjtTtPm2lwhGBjLgOzLHB63IUWfBpNucQjND6d3AOudO+H3RWQ==}
-    deprecated: uuid@10 and below is no longer supported.  For ESM codebases, update to uuid@latest.  For CommonJS codebases, use uuid@11 (but be aware this version will likely be deprecated in 2028).
-    hasBin: true
 
   vite-node@3.2.4:
     resolution: {integrity: sha512-EbKSKh+bh1E1IFxeO0pg1n4dvoOTt0UDiXMd/qn++r98+jPO1xtJilvXldeuQ8giIB5IkpjCgMleHMNEsGH6pg==}
@@ -2002,7 +1999,7 @@ snapshots:
       protobufjs: 7.6.6
       yargs: 17.7.3
 
-  '@hono/node-server@1.19.19(hono@4.13.22)':
+  '@hono/node-server@2.1.11(hono@4.13.22)':
     dependencies:
       hono: 4.13.22
 
@@ -2376,7 +2373,7 @@ snapshots:
       '@types/node': 22.20.7
       '@types/ssh2': 1.15.6
 
-  '@types/dockerode@3.3.47':
+  '@types/dockerode@4.0.2':
     dependencies:
       '@types/docker-modem': 3.0.6
       '@types/node': 22.20.7
@@ -2452,9 +2449,7 @@ snapshots:
       loupe: 3.2.1
       tinyrainbow: 2.0.0
 
-  '@xterm/addon-fit@0.10.0(@xterm/xterm@5.5.0)':
-    dependencies:
-      '@xterm/xterm': 5.5.0
+  '@xterm/addon-fit@0.11.0': {}
 
   '@xterm/xterm@5.5.0': {}
 
@@ -2530,7 +2525,7 @@ snapshots:
       nan: 2.30.0
     optional: true
 
-  croner@9.1.0: {}
+  croner@11.0.1: {}
 
   csstype@3.2.4: {}
 
@@ -2551,7 +2546,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  dockerode@4.0.12:
+  dockerode@5.0.1:
     dependencies:
       '@balena/dockerignore': 1.0.2
       '@grpc/grpc-js': 1.14.7
@@ -2559,7 +2554,6 @@ snapshots:
       docker-modem: 5.0.7
       protobufjs: 7.6.6
       tar-fs: 2.1.6
-      uuid: 10.0.0
     transitivePeerDependencies:
       - supports-color
 
@@ -2699,9 +2693,11 @@ snapshots:
 
   loupe@3.2.1: {}
 
-  lucide-react@0.479.0(react@19.3.1):
+  lucide-react@1.81.0(@types/react@19.3.3)(react@19.3.1):
     dependencies:
       react: 19.3.1
+    optionalDependencies:
+      '@types/react': 19.3.3
 
   magic-string@0.30.21:
     dependencies:
@@ -2969,8 +2965,6 @@ snapshots:
   undici-types@6.21.0: {}
 
   util-deprecate@1.0.2: {}
-
-  uuid@10.0.0: {}
 
   vite-node@3.2.4(@types/node@22.20.7)(jiti@2.7.0)(lightningcss@1.33.0)(tsx@4.23.15):
     dependencies:
